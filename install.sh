@@ -34,7 +34,7 @@ apt-get update
 
 # Packages
 echo "[+] Installing required packages..."
-apt-get install --force-yes --yes python-setuptools autossh python-psutil python2.7-dev libpcap0.8-dev ppp tcpdump python-serial sqlite3 python-requests iw build-essential python-bluez python-flask python-gps python-dateutil python-dev libxml2-dev libxslt-dev pyrit mitmproxy
+apt-get install --force-yes --yes python-setuptools autossh python-psutil python2.7-dev python-libpcap libpcap0.8-dev ppp tcpdump python-serial sqlite3 python-requests iw build-essential python-bluez python-flask python-gps python-dateutil python-dev libxml2-dev libxslt-dev pyrit mitmproxy
 
 # Python packages
 
@@ -47,7 +47,7 @@ pip install -Iv https://pypi.python.org/packages/source/r/requests/requests-0.14
 pip install httplib2
 pip install BeautifulSoup
 pip install publicsuffix
-#pip install mitmproxy
+pip install mitmproxy
 pip install pyinotify
 pip install netifaces
 pip install dnslib
@@ -70,19 +70,19 @@ echo "[+] Installing patched version of scapy..."
 pip install ./setup/scapy-latest-snoopy_patch.tar.gz
 
 # Only run this on your client, not server:
-#read -r -p  "[ ] Do you want to download, compile, and install aircrack? [y/n] " response
-#if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
-#then
-#    echo "[+] Downloading aircrack-ng..."
-#    wget http://download.aircrack-ng.org/aircrack-ng-1.2-beta1.tar.gz
-#    tar xzf aircrack-ng-1.2-beta1.tar.gz
-#    cd aircrack-ng-1.2-beta1
-#    make
-#    echo "[-] Installing aircrack-ng"
-#    make install
-#    cd ..
-#    rm -rf aircrack-ng-1.2-beta1*
-#fi
+read -r -p  "[ ] Do you want to download, compile, and install aircrack? [y/n] " response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+    echo "[+] Downloading aircrack-ng..."
+    wget http://download.aircrack-ng.org/aircrack-ng-1.2-beta1.tar.gz
+    tar xzf aircrack-ng-1.2-beta1.tar.gz
+    cd aircrack-ng-1.2-beta1
+    make
+    echo "[-] Installing aircrack-ng"
+    make install
+    cd ..
+    rm -rf aircrack-ng-1.2-beta1*
+fi
 
 echo "[+] Creating symlinks to this folder for snoopy.py."
 
