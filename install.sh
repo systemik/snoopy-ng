@@ -74,7 +74,7 @@ read -r -p  "[ ] Do you want to download, compile, and install aircrack? [y/n] "
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
 then
     echo "[+] Downloading aircrack-ng..."
-    wget http://download.aircrack-ng.org/aircrack-ng-1.2-beta1.tar.gz
+    wget http://download.aircrack-ng.org/aircrack-ng-1.2-rc2.tar.gz
     tar xzf aircrack-ng-1.2-beta1.tar.gz
     cd aircrack-ng-1.2-beta1
     make
